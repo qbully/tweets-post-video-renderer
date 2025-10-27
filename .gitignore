@@ -1,0 +1,111 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Output files
+dist/
+build/
+out/
+*.mp4
+*.mov
+*.avi
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.gif
+test-output.*
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Storage directory (videos are temporary)
+/data/
+/videos/
+/storage/
+
+# But keep directory structure
+!.gitkeep
+
+# Assets (users must provide their own music)
+assets/background-music.mp3
+assets/background-music.aac
+assets/*.mp3
+assets/*.aac
+assets/*.wav
+
+# Keep assets README
+!assets/README.md
+
+# Documentation builds
+docs/_build/
+site/
+
+# Docker
+.dockerignore
+
+# Railway
+.railway/
+
+# Misc
+*.bak
+*.backup
+*.cache
+.cache/

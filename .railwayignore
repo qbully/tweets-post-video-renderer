@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test files
+*.test.js
+*.spec.js
+**/__tests__/
+**/test/
+**/tests/
+coverage/
+
+# Documentation (optional - remove if needed in deployment)
+*.md
+!RAILWAY.md
+
+# Example and demo files
+**/example*.js
+**/demo*.js
+real-world-examples.js
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.log
+
+# Build artifacts (if any)
+dist/
+build/
+
+# Railway specific
+.railway/
+
+# Storage directory (will be mounted as volume)
+/data/
+videos/
+
+# OS files
+Thumbs.db
