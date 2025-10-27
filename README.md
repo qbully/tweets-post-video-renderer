@@ -978,3 +978,5 @@ Future enhancements under consideration:
 ---
 
 **Built with Node.js, Express, Puppeteer, and FFmpeg**
+
+Made with ❤️ and [Claude Code](https://claude.com/claude-code).
