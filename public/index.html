@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Video Generator - Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎬 Twitter Video Generator</h1>
+                <div class="header-actions">
+                    <button id="settingsBtn" class="btn btn-secondary">⚙️ Settings</button>
+                    <div class="connection-status">
+                        <span id="connectionIndicator" class="status-dot status-unknown"></span>
+                        <span id="connectionText">Checking...</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Create Video Section -->
+            <section class="card create-section">
+                <h2>Create New Video</h2>
+                <form id="videoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profileName">Display Name *</label>
+                            <input type="text" id="profileName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username *</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">@</span>
+                                <input type="text" id="username" required placeholder="johndoe">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profilePhotoUrl">Profile Photo URL *</label>
+                        <input type="url" id="profilePhotoUrl" required placeholder="https://example.com/photo.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tweetBody">Tweet Content *</label>
+                        <textarea id="tweetBody" required rows="5" placeholder="Enter your tweet content here...&#10;&#10;You can use multiple lines!"></textarea>
+                        <div class="char-count">
+                            <span id="charCount">0</span> / 5000 characters
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Theme</label>
+                        <div class="theme-selector">
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="dark" checked>
+                                <span class="theme-preview theme-dark">Dark</span>
+                            </label>
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="light">
+                                <span class="theme-preview theme-light">Light</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="useDefaultsBtn" class="btn btn-secondary">Use Defaults</button>
+                        <button type="button" id="clearFormBtn" class="btn btn-secondary">Clear</button>
+                        <button type="submit" class="btn btn-primary">Generate Video</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Jobs Section -->
+            <section class="card jobs-section">
+                <div class="section-header">
+                    <h2>Recent Jobs</h2>
+                    <button id="refreshJobsBtn" class="btn btn-small btn-secondary">🔄 Refresh</button>
+                </div>
+                <div id="jobsList" class="jobs-list">
+                    <div class="empty-state">
+                        <p>No jobs yet. Create your first video above!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Settings</h2>
+                <button class="modal-close" id="closeSettingsBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="apiUrl">API Base URL *</label>
+                        <input type="url" id="apiUrl" required placeholder="http://localhost:3000">
+                        <small>The URL where your API server is running</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hmacSecret">HMAC Secret Key *</label>
+                        <input type="password" id="hmacSecret" required placeholder="Enter your HMAC secret">
+                        <small>Must match the server's HMAC_SECRET</small>
+                    </div>
+
+                    <hr>
+
+                    <h3>Default Values</h3>
+                    <p class="form-description">These values will be auto-filled when you click "Use Defaults"</p>
+
+                    <div class="form-group">
+                        <label for="defaultProfileName">Default Display Name</label>
+                        <input type="text" id="defaultProfileName" placeholder="Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="defaultUsername">Default Username</label>
+                        <div class="input-with-prefix">
+                            <span class="prefix">@</span>
+                            <input type="text" id="defaultUsername" placeholder="yourusername">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="defaultProfilePhotoUrl">Default Profile Photo URL</label>
+                        <input type="url" id="defaultProfilePhotoUrl" placeholder="https://example.com/photo.jpg">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="resetSettingsBtn" class="btn btn-secondary">Reset to Defaults</button>
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
