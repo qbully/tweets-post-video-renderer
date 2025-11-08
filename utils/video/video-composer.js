@@ -120,10 +120,11 @@ class VideoComposer {
           // Video codec settings
           .videoCodec('libx264')
           .outputOptions([
-            '-preset medium',
-            '-crf 23',
-            '-pix_fmt yuv420p'
-          ])
+  '-preset veryfast',
+  '-threads 2',
+  '-crf 23',
+  '-pix_fmt yuv420p'
+])
           // Audio codec settings
           .audioCodec('aac')
           .audioBitrate('128k')
